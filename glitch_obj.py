@@ -7,8 +7,7 @@ exportedFile = '/Users/gewoonsander/Documents/glitchobj/modelExport.obj'
 glitchedFile = '/Users/gewoonsander/Documents/glitchobj/modelGlitched.obj'
 
 
-#save obj
-
+#export obj
 bpy.ops.export_scene.obj(filepath=exportedFile)
 
 
@@ -26,12 +25,12 @@ for l in f:
     count = count + 1
 
 
-#save file and reopen in c4d (merge with current doc)
+#save file
 f.close()
 fn.close()
 
 
-#clear scene
+#delete all objects in scene
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 
