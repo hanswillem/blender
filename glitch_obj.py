@@ -12,22 +12,49 @@ bpy.ops.export_scene.obj(filepath=exportedFile)
 
 
 #change numbers in obj file
-count = 0
-f = open(exportedFile)
-fn = open(glitchedFile, 'w')
-for l in f:
-    if count % 10 == 0:
-        if l[0] == 'v':
-            rn1 = random.choice(range(5))
-            rn2 = random.choice(range(10))
-            l = [str(rn1) if i == str(rn2) else i for i in l]
-    fn.write(''.join(l))
-    count = count + 1
+def randomNumbers(n):
+    count = 0
+    f = open(exportedFile)
+    fn = open(glitchedFile, 'w')
+    for l in f:
+        if count % n == 0:
+            if l[0] == 'v':
+                rn1 = random.choice(range(5))
+                rn2 = random.choice(range(10))
+                l = [str(rn1) if i == str(rn2) else i for i in l]
+        fn.write(''.join(l))
+        count += 1
+
+    #close files
+    f.close()
+    fn.close()
 
 
-#save file
-f.close()
-fn.close()
+#shuffle vertex lines
+def shuffleVertices(n):
+    count = 0
+    f1 = open(exportedFile)
+    f2 = open(exportedFile)
+    fn = open(glitchedFile, 'w')
+
+    a = [l for l in f1 if l[0:2] == 'v ']
+    random.shuffle(a)
+
+    for l in f2:
+        if (count % n == 0):
+            if l[0:2] == 'v ':
+                l = a[random.choice(range(len(a)))]
+
+        fn.write(''.join(l))
+        count += 1
+
+    #close files
+    f1.close()
+    f2.close()
+    fn.close()
+
+
+shuffleVertices(10)
 
 
 #delete all objects in scene
