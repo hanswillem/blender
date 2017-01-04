@@ -19,7 +19,7 @@ def randomNumbers(n):
     for l in f:
         if count % n == 0:
             if l[0] == 'v':
-                rn1 = random.choice(range(5))
+                rn1 = random.choice(range(10))
                 rn2 = random.choice(range(10))
                 l = [str(rn1) if i == str(rn2) else i for i in l]
         fn.write(''.join(l))
@@ -55,6 +55,7 @@ def shuffleVertices(n):
 
 
 shuffleVertices(10)
+randomNumbers(20)
 
 
 #delete all objects in scene
