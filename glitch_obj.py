@@ -1,5 +1,3 @@
-#DOESN'T WORK JET!!!
-
 import bpy
 import random
 
@@ -19,12 +17,10 @@ count = 0
 f = open(exportedFile)
 fn = open(glitchedFile, 'w')
 for l in f:
-    if count % 25 == 0:
-        rn1 = random.choice(range(10))
-        rn2 = random.choice(range(10))
-        l = [rn1 if i == str(rn2) else i for i in l] #pick random numbers and change them in other random numbers
-        #l = [0 if i == 'f' else i for i in l] #remove faces
-        l = [str(i) for i in l]
+    if count % 10 == 0:
+        if l[0:2] == 'v ':
+            l = ['1' if i == '0' else i for i in l]
+            l = [str(i) for i in l]
     fn.write(''.join(l))
     count = count + 1
 
