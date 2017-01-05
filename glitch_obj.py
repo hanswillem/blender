@@ -22,9 +22,6 @@ def randomNumbers(n):
                 rn1 = random.choice(range(10))
                 rn2 = random.choice(range(10))
                 l = [str(rn1) if i == str(rn2) else i for i in l]
-            if l[0] == 'f':
-
-
                 
         fn.write(''.join(l))
         count += 1
