@@ -8,7 +8,7 @@ glitchedFile = '/Users/gewoonsander/Documents/glitchobj/modelGlitched.obj'
 
 
 #export obj
-bpy.ops.export_scene.obj(filepath=exportedFile)
+bpy.ops.export_scene.obj(filepath = exportedFile, use_materials = False)
 
 
 #change numbers in obj file
@@ -22,6 +22,10 @@ def randomNumbers(n):
                 rn1 = random.choice(range(10))
                 rn2 = random.choice(range(10))
                 l = [str(rn1) if i == str(rn2) else i for i in l]
+            if l[0] == 'f':
+
+
+                
         fn.write(''.join(l))
         count += 1
 
@@ -54,8 +58,8 @@ def shuffleVertices(n):
     fn.close()
 
 
-shuffleVertices(10)
-randomNumbers(20)
+shuffleVertices(5)
+randomNumbers(5)
 
 
 #delete all objects in scene
