@@ -2,7 +2,7 @@ import bpy
 import random
 
 
-def glitch(n1, n2):
+def glitch(n1, n2, n3):
     
     #change numbers in obj file
     def randomNumbers(n):
@@ -37,7 +37,7 @@ def glitch(n1, n2):
             random.shuffle(a)
 
             for l in f2:
-                if (count % n == 0):
+                if count % n == 0:
                     if l[0:2] == 'v ':
                         l = a[random.choice(range(len(a)))]
 
@@ -50,6 +50,27 @@ def glitch(n1, n2):
         else:
             pass
 
+    #remove faces
+    def removeFaces(n):
+        if n != 0:
+            count = 0;
+            f = open(exportedFile)
+            fn = open(glitchedFile, 'w')
+
+            for l in f:
+                if count % n == 0:
+                    if l[0] == 'f':
+                        l = ''
+                    
+                fn.write(''.join(l))
+                count += 1
+
+            f.close()
+            fn.close()
+            
+        else:
+            pass
+
     #set paths, stating the obvious but change these paths to match your machine
     exportedFile = '/Users/gewoonsander/Documents/glitchobj/modelExport.obj'
     glitchedFile = '/Users/gewoonsander/Documents/glitchobj/modelGlitched.obj'
@@ -57,9 +78,11 @@ def glitch(n1, n2):
     #export obj
     bpy.ops.export_scene.obj(filepath = exportedFile, use_materials = False)
 
+    #call the glitch functions
     shuffleVertices(n1)
     randomNumbers(n2)
-
+    removeFaces(n3)
+    
     #delete all objects in scene
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
@@ -68,4 +91,6 @@ def glitch(n1, n2):
     bpy.ops.import_scene.obj(filepath=glitchedFile)
 
 
-glitch(5, 5)
+#atm you cannot call removeFaces at the same time as randomNumbers and or shuffleVertices!
+glitch(5, 5, 0)
+glitch(0, 0, 5)
