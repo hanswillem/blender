@@ -1,0 +1,3 @@
+Windows: blender -b "C:\path\to\file.blend" -x 1 -a
+
+Linux/Mac: blender -b "/path/to/file.blend" -x 1 -a
