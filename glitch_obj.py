@@ -92,9 +92,9 @@ def glitch(n1, n2, n3):
     removeFaces(n3)
 
 
-#set paths, stating the obvious but change these paths to match your machine
-exportedFile = '/Users/hanswillemgijzel/Documents/glitchobj/modelExport.obj'
-glitchedFile = '/Users/hanswillemgijzel/Documents/glitchobj/modelGlitched.obj'
+#the files are saved to the same folder as the blend file 
+exportedFile = bpy.path.abspath('//modelExport.obj')
+glitchedFile = bpy.path.abspath('//modelGlitched.obj')
 
 
 glitch(.1, .1, .1)
