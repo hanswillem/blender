@@ -115,7 +115,7 @@ def myScript():
 #-------------------------------------------------------------------
 
 
-#addon boiler plate
+#addon boilerplate
 class GlitchObj(bpy.types.Operator):
     """Glitch an obj file""" #blender will use this as a tooltip for menu items and buttons.
     bl_idname = "script.glitch_obj" #unique identifier for buttons and menu items to reference.
