@@ -112,11 +112,10 @@ def myScript():
         print('Save the file first!')
 
 
+#-------------------------------------------------------------------
 
 
-
-
-# addon boiler plate
+#addon boiler plate
 class GlitchObj(bpy.types.Operator):
     """Glitch an obj file""" #blender will use this as a tooltip for menu items and buttons.
     bl_idname = "script.glitch_obj" #unique identifier for buttons and menu items to reference.
@@ -137,7 +136,7 @@ def unregister():
     bpy.utils.unregister_class(GlitchObj)
 
 
-# This allows you to run the script directly from blenders text editor
-# to test the addon without having to install it.
+#This allows you to run the script directly from blenders text editor
+#to test the addon without having to install it.
 if __name__ == "__main__":
     register()
