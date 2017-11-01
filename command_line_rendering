@@ -1,7 +1,6 @@
 Linux/Mac: blender -b "/path/to/file.blend" -x 1 -a
 
 
-
 Windows Redrum batch render (save following lines as .bat file, and run it):
 
 "C:\Program Files\Blender Foundation\Blender\blender.exe" -b "C:\Path\To\File_01.blend" -x 1 -a
