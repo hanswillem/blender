@@ -97,4 +97,8 @@ exportedFile = bpy.path.abspath('//modelExport.obj')
 glitchedFile = bpy.path.abspath('//modelGlitched.obj')
 
 
-glitch(.1, .1, .1)
+#the script is only executed when the file is saved
+if bpy.data.is_saved: 
+    glitch(.1, .1, .1)
+else:
+    print('Save the file first!')
