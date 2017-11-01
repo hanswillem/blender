@@ -1,5 +1,6 @@
 bl_info = {
     "name": "Glitch Obj",
+    "description": "Glitches the active object.",
     "category": "Scripts",
 }
 
