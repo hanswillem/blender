@@ -7,9 +7,10 @@ bl_info = {
 import bpy
 import random
 
+
 def myScript():
 
-
+    
     #export obj
     def exportOBJ():
         bpy.ops.export_scene.obj(filepath = exportedFile, use_materials = False)
