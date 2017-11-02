@@ -107,9 +107,7 @@ def myScript():
         removeFaces(n3)
 
 
-    #the files are saved to the same folder as the blend file
-    #exportedFile = bpy.path.abspath('//modelExport.obj')
-    #glitchedFile = bpy.path.abspath('//modelGlitched.obj')
+    #the obj file is saved to and loaded from the temp folder
     exportedFile = bpy.app.tempdir + 'modelExport.obj'
     glitchedFile = bpy.app.tempdir + 'modelGlitched.obj'
 
