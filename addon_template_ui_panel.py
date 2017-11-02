@@ -23,10 +23,10 @@ class myScriptPanel(bpy.types.Panel):
     def draw(self, context):
         #button 01
         TheCol_01 = self.layout.column(align=True)
-        TheCol_01.operator("script.hello_world", text="Execute my script 01") #the operator class to execute and the text on the button
+        TheCol_01.operator("script.hello_world", text="Say hello") #the operator class to execute and the text on the button
         #button 02
         TheCol_02 = self.layout.column(align=True)
-        TheCol_02.operator("script.hello_world", text="Execute my script 02") #the operator class to execute and the text on the button
+        TheCol_02.operator("script.hello_world", text="Say hello again") #the operator class to execute and the text on the button
     #end draw
 
 
