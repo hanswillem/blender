@@ -129,7 +129,6 @@ class GlitchObjPanel(bpy.types.Panel):
 
 
     def draw(self, context):
-        #button 01
         TheCol = self.layout.column(align=True)
         TheCol.operator("script.glitch_obj", text="Glitch!") #the bl_idname of the operator class to execute and the text on the button
     #end draw
