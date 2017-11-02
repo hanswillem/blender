@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Glitch OBJ",
     "author": "Hans Willem Gijzel",
-    "version": (1, 0),
+    "version": (0, 1),
     "location": "View3D > Tools > Glitch OBJ",
     "category": "Scripts",
 }
@@ -108,15 +108,14 @@ def myScript():
 
 
     #the files are saved to the same folder as the blend file
-    exportedFile = bpy.path.abspath('//modelExport.obj')
-    glitchedFile = bpy.path.abspath('//modelGlitched.obj')
+    #exportedFile = bpy.path.abspath('//modelExport.obj')
+    #glitchedFile = bpy.path.abspath('//modelGlitched.obj')
+    exportedFile = bpy.app.tempdir + 'modelExport.obj'
+    glitchedFile = bpy.app.tempdir + 'modelGlitched.obj'
 
 
-    #the script is only executed when the file is saved
-    if not bpy.data.is_saved:
-        print('Save the file first!')
-    else:
-        glitch(.1, .1, .1)
+    #call the glitch function
+    glitch(.1, .1, .1)
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------
