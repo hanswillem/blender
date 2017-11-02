@@ -1,5 +1,8 @@
 bl_info = {
     "name": "Glitch OBJ",
+    "author": "Hans Willem Gijzel",
+    "version": (0, 1),
+    "location": "View3D > Tools > Glitch OBJ",
     "category": "Scripts",
 }
 
@@ -13,7 +16,7 @@ import random
 
 def myScript():
 
-        
+
     #export obj
     def exportOBJ():
         bpy.ops.export_scene.obj(filepath = exportedFile, use_materials = False)
@@ -41,7 +44,7 @@ def myScript():
                         rn1 = random.choice(range(10))
                         rn2 = random.choice(range(10))
                         l = [str(rn1) if i == str(rn2) else i for i in l]
-                        
+
                 fn.write(''.join(l))
 
             f.close()
@@ -88,7 +91,7 @@ def myScript():
                 if l[0] == 'f':
                     if random.random() < n:
                         l = ''
-                    
+
                 fn.write(''.join(l))
 
             f.close()
@@ -104,16 +107,14 @@ def myScript():
         removeFaces(n3)
 
 
-    #the files are saved to the same folder as the blend file 
+    #the files are saved to the same folder as the blend file
     exportedFile = bpy.path.abspath('//modelExport.obj')
     glitchedFile = bpy.path.abspath('//modelGlitched.obj')
 
 
-    #the script is only executed when there is an active object and when the file is saved 
-    if not bpy.data.is_saved: 
+    #the script is only executed when the file is saved
+    if not bpy.data.is_saved:
         print('Save the file first!')
-    elif bpy.context.object == None:
-        print('Select an object first!')
     else:
         glitch(.1, .1, .1)
 
@@ -138,7 +139,7 @@ class GlitchObjPanel(bpy.types.Panel):
 
 
 class GlitchObjOperator(bpy.types.Operator):
-    """My Script that just says hello""" #blender will use this as a tooltip for menu items and buttons
+    """Glitch OBJ""" #blender will use this as a tooltip for menu items and buttons
     bl_idname = "script.glitch_obj" #unique identifier for buttons and menu items to reference
     bl_label = "Glitch OBJ" #display name in the interface
     bl_options = {'REGISTER', 'UNDO'}
