@@ -127,7 +127,6 @@ class GlitchObjPanel(bpy.types.Panel):
     bl_category = "Glitch OBJ" #the name of the tab in the ui
     bl_label = "Glitch OBJ" #label in interface
 
-
     def draw(self, context):
         TheCol = self.layout.column(align=True)
         TheCol.operator("script.glitch_obj", text="Glitch!") #the bl_idname of the operator class to execute and the text on the button
@@ -140,11 +139,9 @@ class GlitchObjOperator(bpy.types.Operator):
     bl_label = "Glitch OBJ" #display name in the interface
     bl_options = {'REGISTER', 'UNDO'}
 
-
     def invoke(self, context, event):
         #The actual script to call
         myScript()
-
 
         return {'FINISHED'}
 
