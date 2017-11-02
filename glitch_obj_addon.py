@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Glitch OBJ",
     "author": "Hans Willem Gijzel",
-    "version": (0, 1),
+    "version": (1, 0),
     "location": "View3D > Tools > Glitch OBJ",
     "category": "Scripts",
 }
