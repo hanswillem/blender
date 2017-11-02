@@ -1,14 +1,23 @@
 bl_info = {
     "name": "My Script",
+    "author": "Hans Willem Gijzel",
+    "version": (1, 0),
+    "location": "View3D > Tools > Scripts",
     "category": "Scripts",
 }
 
 
 import bpy
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 #the actual script to execute when the button is pressed
 def myScript():
     print("Hello world!")
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 #boiler plate
@@ -28,9 +37,9 @@ class myScriptPanel(bpy.types.Panel):
 
 
 class MyScriptOperator(bpy.types.Operator):
-    """My Script that just says hello""" #blender will use this as a tooltip for menu items and buttons.
-    bl_idname = "script.hello_world" #unique identifier for buttons and menu items to reference.
-    bl_label = "My Script" #display name in the interface.
+    """My Script that just says hello""" #blender will use this as a tooltip for menu items and buttons
+    bl_idname = "script.hello_world" #unique identifier for buttons and menu items to reference
+    bl_label = "My Script" #display name in the interface
     bl_options = {'REGISTER', 'UNDO'}
 
 
@@ -52,7 +61,7 @@ def unregister():
     bpy.utils.unregister_class(myScriptPanel)
 
 
-#This allows you to run the script directly from blenders text editor
-#to test the addon without having to install it.
+#this allows you to run the script directly from blenders text editor
+#to test the addon without having to install it
 if __name__ == "__main__":
     register()
