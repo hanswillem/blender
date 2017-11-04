@@ -36,7 +36,7 @@ class MyPanel(bpy.types.Panel):
 #operator class
 class MyOperator(bpy.types.Operator):
     
-    #opetator attributes
+    #operator attributes
     """What does this operator do?"""
     bl_label = 'My Operator'
     bl_idname = 'script.my_operator'
