@@ -1,7 +1,15 @@
-Linux/Mac: blender -b "/path/to/file.blend" -x 1 -a
+Put the following lines in a .bat file to batch render them
+
+Linux/Mac: 
+blender -b "/path/to/file.blend_01" -x 1 -a
+blender -b "/path/to/file.blend_02" -x 1 -a
 
 
-Windows Redrum batch render (save following lines in a .bat file, and run it):
-
+Windows:
 "C:\Program Files\Blender Foundation\Blender\blender.exe" -b "C:\Path\To\File_01.blend" -x 1 -a
 "C:\Program Files\Blender Foundation\Blender\blender.exe" -b "C:\Path\To\File_02.blend" -x 1 -a
+
+
+-b = render in the background
+-x = let blender worrie about the extensions of the rendered files
+-a = render animation
