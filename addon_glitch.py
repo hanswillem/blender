@@ -110,6 +110,14 @@ def script_glitch_obj():
         removeFaces(n3)
 
 
+    #set shading to flat for all mesh objects in the scene
+    def flatShadingAllObjects():
+        for i in bpy.data.objects:
+            if i.type == 'MESH':
+                for p in i.data.polygons:
+                    p.use_smooth = False
+
+
     #the obj file is saved to and loaded from the temp folder
     exportedFile = bpy.app.tempdir + 'modelExport.obj'
     glitchedFile = bpy.app.tempdir + 'modelGlitched.obj'
@@ -117,6 +125,7 @@ def script_glitch_obj():
 
     #call the glitch function
     glitch(.1, .1, .1)
+    flatShadingAllObjects()
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------
