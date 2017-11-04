@@ -1,10 +1,14 @@
 bl_info = {
-    "name": "Glitch OBJ",
-    "author": "Hans Willem Gijzel",
-    "version": (0, 1),
-    "location": "View3D > Tools > Glitch OBJ",
-    "category": "Scripts",
-}
+    'name' : 'Glitch',
+    'author' : 'Hans Willem Gijzel',
+    'version' : (1, 0),
+    'blender' : (2, 79),
+    'location' : 'View 3D > Tools > Glitch',
+    'description' : 'Glitches the objects in the scene',
+    'warning' : '',
+    'wiki_url' : '',
+    'category' : 'Glitch'
+    }
 
 
 import bpy
@@ -14,8 +18,7 @@ import random
 #---the glitch script----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def myScript():
-
+def script_glitch_obj():
 
     #export obj
     def exportOBJ():
@@ -119,44 +122,50 @@ def myScript():
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#boiler plate
-class GlitchObjPanel(bpy.types.Panel):
-    bl_space_type = "VIEW_3D"
-    bl_region_type = "TOOLS"
-    bl_context = "objectmode"
-    bl_category = "Glitch OBJ" #the name of the tab in the ui
-    bl_label = "Glitch OBJ" #label in interface
+#panel class
+class Panel_Glitch(bpy.types.Panel):
 
+    #panel attributes
+    """Panel with glitch tools"""
+    bl_label = 'Glitch'
+    bl_idname = 'panel_glitch'
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'TOOLS'
+    bl_category = 'Glitch'
+
+    #draw loop
     def draw(self, context):
-        TheCol = self.layout.column(align=True)
-        TheCol.operator("script.glitch_obj", text="Glitch!") #the bl_idname of the operator class to execute and the text on the button
-    #end draw
+        layout = self.layout
+        layout.operator('glitch.glitch_obj', text="Glitch OBJ")
 
 
-class GlitchObjOperator(bpy.types.Operator):
-    """Glitch OBJ""" #blender will use this as a tooltip for menu items and buttons
-    bl_idname = "script.glitch_obj" #unique identifier for buttons and menu items to reference
-    bl_label = "Glitch OBJ" #display name in the interface
+#operator class
+class Operator_GlitchObj(bpy.types.Operator):
+
+    #operator attributes
+    """Glitches the objects in the scene"""
+    bl_label = 'Glitch OBJ'
+    bl_idname = 'glitch.glitch_obj'
     bl_options = {'REGISTER', 'UNDO'}
 
-    def invoke(self, context, event):
-        #The actual script to call
-        myScript()
+    #execute
+    def execute(self, context):
+        script_glitch_obj();
 
         return {'FINISHED'}
 
 
+#registration
 def register():
-    bpy.utils.register_class(GlitchObjPanel)
-    bpy.utils.register_class(GlitchObjOperator)
+    bpy.utils.register_class(Panel_Glitch)
+    bpy.utils.register_class(Operator_GlitchObj)
 
 
 def unregister():
-    bpy.utils.unregister_class(GlitchObjPanel)
-    bpy.utils.unregister_class(GlitchObjOperator)
+    bpy.utils.register_class(Panel_Glitch)
+    bpy.utils.register_class(Operator_GlitchObj)
 
 
-#this allows you to run the script directly from blenders text editor
-#to test the addon without having to install it
-if __name__ == "__main__":
+#enable to test the addon by running this script
+if __name__ == '__main__':
     register()
