@@ -15,6 +15,11 @@ bl_info = {
 import bpy
 
 
+#the main function
+def main():
+    print('Hello world!')
+
+
 #panel class
 class MyPanel(bpy.types.Panel):
     
@@ -44,7 +49,7 @@ class MyOperator(bpy.types.Operator):
 
     #execute
     def execute(self, context):
-        print('Hello world!')
+        main()
         
         return {'FINISHED'}
     
