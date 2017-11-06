@@ -18,7 +18,7 @@ import random
 #---the glitch script----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def script_glitch_obj():
+def main():
 
     #export obj
     def exportOBJ():
@@ -159,7 +159,7 @@ class Operator_GlitchObj(bpy.types.Operator):
 
     #execute
     def execute(self, context):
-        script_glitch_obj();
+        main();
 
         return {'FINISHED'}
 
