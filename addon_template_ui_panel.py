@@ -35,8 +35,9 @@ class MyPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         layout.label('My Label')
-        layout.operator('script.my_operator', text="Say Hello!")
-
+        col = layout.column(align = True)
+        col.operator('script.my_operator', text="Say Hello!")
+        
 
 #operator class
 class MyOperator(bpy.types.Operator):
