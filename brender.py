@@ -8,7 +8,7 @@
 #add Blender to PATH in Extension variables
 #restart windows
 #------------------
-#use on windows
+#use on windows:
 #------------------
 #in command prompt navigate to folder with .blend files
 #type 'brender' to start batch render
