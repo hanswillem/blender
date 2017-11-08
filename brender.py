@@ -10,7 +10,7 @@
 #------------------
 #use on windows:
 #------------------
-#in command prompt navigate to folder with .blend files
+#open command prompt and navigate to folder with .blend files
 #type 'brender' to start batch render
 
 
@@ -23,7 +23,7 @@ def main():
     folder = os.getcwd()
     blend_files = []
 
-    #make a list of all .blend files
+    #make a list of all .blend files in current folder
     for i in os.listdir(folder):
         if i.endswith('.blend'):
             blend_files.append(i)
