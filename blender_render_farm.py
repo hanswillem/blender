@@ -1,5 +1,5 @@
 #when executed this script checks the batch_file and starts rendering the first available blend file
-#when done it renders the next available blend files
+#when done it renders the next available blend file
 #this script can be executed on multiple machines simultaneously provided that the batch_file and the containing blend files are within reach of those machines
 
 
