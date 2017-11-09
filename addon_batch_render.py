@@ -1,3 +1,7 @@
+#made for windows!
+#works only if blender is added to the path environment variables!
+
+
 bl_info = {
     'name' : 'Batch Render',
     'author' : 'Hans Willem Gijzel',
