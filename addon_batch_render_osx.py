@@ -1,4 +1,5 @@
-#made for osx
+#made for windows!
+#works only if blender is added to the path environment variables!
 
 
 bl_info = {
@@ -21,7 +22,7 @@ from shutil import copyfile
 
 
 #path to folder
-batch_file = '/Users/hanswillemgijzel/Documents/blender_batch_render/batch_render.command'
+batch_file = 'P:/_blender_batch_render/batch_render.bat'
 
 
 #the main functions called by the operators
@@ -47,7 +48,7 @@ def main_edit_queue():
 
 def main_open_folder():
     print('opening folder...')
-    os.system('open ' + (os.path.dirname(batch_file)))
+    os.startfile(os.path.dirname(batch_file))
 
 
 #helper functions
@@ -73,11 +74,10 @@ def removeDuplicates():
 def createBatchFile():
     f = open(batch_file, 'w')
     f.close()
-    os.system('chmod +x ' + batch_file)
 
 
 #panel class
-class MyPanel(bpy.types.Panel):
+class MyPanel_batch_render(bpy.types.Panel):
 
     #panel attributes
     """Batch Render Panel Class"""
@@ -164,7 +164,7 @@ class MyOperator_open_folder(bpy.types.Operator):
 
 #registration
 def register():
-    bpy.utils.register_class(MyPanel)
+    bpy.utils.register_class(MyPanel_batch_render)
     bpy.utils.register_class(MyOperator_add_to_queue)
     bpy.utils.register_class(MyOperator_edit_queue)
     bpy.utils.register_class(MyOperator_open_folder)
@@ -172,11 +172,11 @@ def register():
 
 
 def unregister():
-    bpy.utils.register_class(MyPanel)
-    bpy.utils.register_class(MyOperator_add_to_queue)
-    bpy.utils.register_class(MyOperator_edit_queue)
-    bpy.utils.register_class(MyOperator_open_folder)
-    bpy.utils.register_class(MyOperator_clear_queue)
+    bpy.utils.unregister_class(MyPanel_batch_render)
+    bpy.utils.unregister_class(MyOperator_add_to_queue)
+    bpy.utils.unregister_class(MyOperator_edit_queue)
+    bpy.utils.unregister_class(MyOperator_open_folder)
+    bpy.utils.unregister_class(MyOperator_clear_queue)
 
 
 #enable to test the addon by running this script
