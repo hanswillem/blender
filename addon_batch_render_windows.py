@@ -22,14 +22,15 @@ from shutil import copyfile
 
 
 #path to folder
-batch_file = 'C:/Users/Hans-Willem/Documents/blender_batch_render/batch_render.bat'
+batch_file = os.path.join(bpy.utils.user_resource('SCRIPTS', "addons"), 'batch_render.bat')
+#batch_file = 'C:/Users/Hans-Willem/Documents/blender_batch_render/batch_render.bat'
 
 
 #the main functions called by the operators
 def main_add_to_queue():
     print('adding to queue...')
     f = open(batch_file, 'a')
-    render_string = 'blender -b "' + str(bpy.data.filepath) + '" -x 1 -a' + '\n'
+    render_string = '"' + bpy.app.binary_path + '" -b "' + str(bpy.data.filepath) + '" -x 1 -a' + '\n'
     f.write(render_string)
     f.close()
 
