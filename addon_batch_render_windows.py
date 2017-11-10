@@ -1,4 +1,22 @@
-#made for windows!
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 2
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
+
+# This addon is made for windows!
 
 
 bl_info = {
@@ -21,8 +39,7 @@ from shutil import copyfile
 
 
 #path to folder
-batch_file = os.path.join(bpy.utils.user_resource('SCRIPTS', "addons"), 'batch_render.bat')
-#batch_file = 'C:/Users/Hans-Willem/Documents/blender_batch_render/batch_render.bat'
+batch_file = 'P:/_blender_batch_render/batch_render.bat'
 
 
 #the main functions called by the operators
@@ -77,7 +94,7 @@ def createBatchFile():
 
 
 #panel class
-class MyPanel(bpy.types.Panel):
+class MyPanel_batch_render(bpy.types.Panel):
 
     #panel attributes
     """Batch Render Panel Class"""
@@ -98,7 +115,6 @@ class MyPanel(bpy.types.Panel):
         col.operator('script.operator_clear_queue', text="Clear Queue")
         col.operator('script.operator_edit_queue', text="Edit Queue In Atom")
         col.operator('script.operator_open_folder', text="Open Folder")
-
 
 
 #operator class
@@ -164,7 +180,7 @@ class MyOperator_open_folder(bpy.types.Operator):
 
 #registration
 def register():
-    bpy.utils.register_class(MyPanel)
+    bpy.utils.register_class(MyPanel_batch_render)
     bpy.utils.register_class(MyOperator_add_to_queue)
     bpy.utils.register_class(MyOperator_edit_queue)
     bpy.utils.register_class(MyOperator_open_folder)
@@ -172,11 +188,11 @@ def register():
 
 
 def unregister():
-    bpy.utils.register_class(MyPanel)
-    bpy.utils.register_class(MyOperator_add_to_queue)
-    bpy.utils.register_class(MyOperator_edit_queue)
-    bpy.utils.register_class(MyOperator_open_folder)
-    bpy.utils.register_class(MyOperator_clear_queue)
+    bpy.utils.unregister_class(MyPanel_batch_render)
+    bpy.utils.unregister_class(MyOperator_add_to_queue)
+    bpy.utils.unregister_class(MyOperator_edit_queue)
+    bpy.utils.unregister_class(MyOperator_open_folder)
+    bpy.utils.unregister_class(MyOperator_clear_queue)
 
 
 #enable to test the addon by running this script
