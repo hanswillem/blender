@@ -1,5 +1,4 @@
-#made for windows!
-#works only if blender is added to the path environment variables!
+#made for osx
 
 
 bl_info = {
