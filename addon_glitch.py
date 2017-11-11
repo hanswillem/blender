@@ -1,3 +1,24 @@
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 2
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
+
+# This add-on is made for OSX!
+
+
 bl_info = {
     'name' : 'Glitch',
     'author' : 'Hans Willem Gijzel',
@@ -110,7 +131,6 @@ def main():
         removeFaces(n3)
 
 
-    #set shading to flat for all mesh objects in the scene
     def flatShadingAllObjects():
         for i in bpy.data.objects:
             if i.type == 'MESH':
@@ -129,6 +149,12 @@ def main():
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#check if there are any meshes in the scene (for the poll classmethod)
+def meshesInScene():
+    m = [i for i in bpy.data.objects if i.type == 'MESH']
+    return len(m) > 0
 
 
 #panel class
@@ -157,6 +183,11 @@ class Operator_GlitchObj(bpy.types.Operator):
     bl_idname = 'glitch.glitch_obj'
     bl_options = {'REGISTER', 'UNDO'}
 
+    #poll
+    @classmethod
+    def poll(cls, context):
+        return meshesInScene()
+
     #execute
     def execute(self, context):
         main();
@@ -171,8 +202,8 @@ def register():
 
 
 def unregister():
-    bpy.utils.register_class(Panel_Glitch)
-    bpy.utils.register_class(Operator_GlitchObj)
+    bpy.utils.unregister_class(Panel_Glitch)
+    bpy.utils.unregister_class(Operator_GlitchObj)
 
 
 #enable to test the addon by running this script
