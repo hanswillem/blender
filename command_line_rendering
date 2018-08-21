@@ -11,5 +11,5 @@ Windows:
 
 
 -b = render in the background
--x = let blender worrie about the extensions of the rendered files
+-x = let blender worry about the extensions of the rendered files
 -a = render animation
