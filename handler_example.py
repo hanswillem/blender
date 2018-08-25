@@ -1,3 +1,5 @@
+#the myFunction function updates everytime when there is a frame change.
+
 def myFunction(scene):
     print(scene.frame_current)
 
