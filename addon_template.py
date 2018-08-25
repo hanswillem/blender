@@ -47,7 +47,12 @@ class MyOperator(bpy.types.Operator):
     bl_label = 'My Operator'
     bl_idname = 'script.my_operator'
     bl_options = {'REGISTER', 'UNDO'}
-
+    
+    #poll - if the poll function returns False, the button will be greyed out
+    @classmethod
+    def poll(cls, context):
+        return 2 > 1
+    
     #execute
     def execute(self, context):
         main()
