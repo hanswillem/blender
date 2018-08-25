@@ -7,7 +7,7 @@ bl_info = {
     'description' : 'Says hello',
     'warning' : '',
     'wiki_url' : '',
-    'category' : 'My Addon Category'
+    'category' : 'My Add-on Category'
     }
 
 
@@ -67,8 +67,8 @@ def register():
     
 
 def unregister():
-    bpy.utils.register_class(MyPanel)
-    bpy.utils.register_class(MyOperator)
+    bpy.utils.unregister_class(MyPanel)
+    bpy.utils.unregister_class(MyOperator)
 
 
 #enable to test the addon by running this script
