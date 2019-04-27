@@ -1,8 +1,8 @@
 Put the following lines in a .bat file to batch render them
 
 Linux/Mac: 
-blender -b "/path/to/file.blend_01" -x 1 -a
-blender -b "/path/to/file.blend_02" -x 1 -a
+blender -b "/path/to/file_01.blend" -x 1 -a
+blender -b "/path/to/file_01.blend" -x 1 -a
 
 
 Windows:
