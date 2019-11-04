@@ -15,9 +15,24 @@ bl_info = {
 import bpy
 
 
+#setup some global scene properties
+bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider')
+bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value')
+bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle')
+
+
+#set the properties (you don't have to do this)
+bpy.context.scene.my_prop_slider = 0
+bpy.context.scene.my_prop_value = 0
+bpy.context.scene.my_prop_toggle = False
+
+
 #the main function
 def main():
     print('Hello world!')
+    print('Slider: ' + str(bpy.context.scene.my_prop_slider))
+    print('Value: ' + str(bpy.context.scene.my_prop_value))
+    print('Toggle: ' + str(bpy.context.scene.my_prop_toggle))
 
 
 #panel class
@@ -33,10 +48,13 @@ class MYPANEL_PT_Panel(bpy.types.Panel):
     #draw loop
     def draw(self, context):
         layout = self.layout
-        row = layout.row()
-        row.operator('script.myoperator', text = 'Say Hello!')
+        col = layout.column(align = True)
+        col.operator('script.myoperator', text='Say Hello!')
+        col.prop(context.scene, 'my_prop_slider', slider=True)
+        col.prop(context.scene, 'my_prop_value')
+        col.prop(context.scene, 'my_prop_toggle')
         
-
+        
 #operator class
 class MYOPERATOR_OT_Operator(bpy.types.Operator):
     #operator attributes
@@ -70,7 +88,6 @@ def unregister():
     from bpy.utils import unregister_class
     for cls in reversed(classes):
         unregister_class(cls)
-
 
 
 #enable to test the addon by running this script
