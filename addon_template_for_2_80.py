@@ -20,6 +20,8 @@ class MyPropertyGroup(bpy.types.PropertyGroup):
     bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider', default=0)
     bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value', default=0)
     bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle', default=False)
+    
+    #why a tuple for every item, you ask? -> (Key, Label, Description)
     bpy.types.Scene.my_prop_enum = bpy.props.EnumProperty(name='pick', items=[('first', 'first', '') , ('second', 'second', '')])
 
 
