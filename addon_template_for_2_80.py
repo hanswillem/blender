@@ -17,9 +17,10 @@ import bpy
 
 #setup some global scene properties
 class MyPropertyGroup(bpy.types.PropertyGroup):
-    bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider', default = 0)
-    bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value', default = 0)
-    bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle', default = False)
+    bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider', default=0)
+    bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value', default=0)
+    bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle', default=False)
+    bpy.types.Scene.my_prop_enum = bpy.props.EnumProperty(name='pick', items=[('first', 'first', '') , ('second', 'second', '')])
 
 
 #the main function
@@ -28,6 +29,7 @@ def main():
     print('Slider: ' + str(bpy.context.scene.my_prop_slider))
     print('Value: ' + str(bpy.context.scene.my_prop_value))
     print('Toggle: ' + str(bpy.context.scene.my_prop_toggle))
+    print('Enum: ' + str(bpy.context.scene.my_prop_enum))
 
 
 #panel class
@@ -48,6 +50,7 @@ class MYPANEL_PT_Panel(bpy.types.Panel):
         col.prop(context.scene, 'my_prop_slider', slider=True)
         col.prop(context.scene, 'my_prop_value')
         col.prop(context.scene, 'my_prop_toggle')
+        col.prop(context.scene, 'my_prop_enum')
         
         
 #operator class
