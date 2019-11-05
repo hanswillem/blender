@@ -16,15 +16,10 @@ import bpy
 
 
 #setup some global scene properties
-bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider')
-bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value')
-bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle')
-
-
-#set the properties (you don't have to do this)
-bpy.context.scene.my_prop_slider = 0
-bpy.context.scene.my_prop_value = 0
-bpy.context.scene.my_prop_toggle = False
+class MyPropertyGroup(bpy.types.PropertyGroup):
+    bpy.types.Scene.my_prop_slider = bpy.props.FloatProperty(min=-1, max=1, name='Slider', default = 0)
+    bpy.types.Scene.my_prop_value = bpy.props.IntProperty(name='Value', default = 0)
+    bpy.types.Scene.my_prop_toggle = bpy.props.BoolProperty(name='Toggle', default = False)
 
 
 #the main function
@@ -77,6 +72,7 @@ class MYOPERATOR_OT_Operator(bpy.types.Operator):
 classes = (
     MYPANEL_PT_Panel,
     MYOPERATOR_OT_Operator,
+    MyPropertyGroup
 )
 
 def register():
