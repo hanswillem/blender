@@ -13,3 +13,13 @@ Windows:
 -b = render in the background
 -x = let blender worry about the extensions of the rendered files
 -a = render animation
+
+
+Start rendering:
+
+Linux/Mac
+In terminal type batfile.bat
+
+Windows (Powershell)
+Shift right-click in the folder with the .bat file and choose 'open Powershell here'.
+Type .\batfile.bat
