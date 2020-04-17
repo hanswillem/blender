@@ -35,11 +35,10 @@ def main():
 
 
 #panel class
-class MYPANEL_PT_Panel(bpy.types.Panel):
+class VIEW_3D_PT_mypanel(bpy.types.Panel):
     #panel attributes
     """Tooltip"""
     bl_label = 'My Panel Label'
-    bl_idname = 'MYPANEL_PT_Panel'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'My Addon'
@@ -56,7 +55,7 @@ class MYPANEL_PT_Panel(bpy.types.Panel):
         
         
 #operator class
-class MYOPERATOR_OT_Operator(bpy.types.Operator):
+class SCRIPT_OT_myoperator(bpy.types.Operator):
     #operator attributes
     """Tooltip"""
     bl_label = 'My Operator Label'
@@ -75,8 +74,8 @@ class MYOPERATOR_OT_Operator(bpy.types.Operator):
         
 #registration
 classes = (
-    MYPANEL_PT_Panel,
-    MYOPERATOR_OT_Operator,
+    VIEW_3D_PT_mypanel,
+    SCRIPT_OT_myoperator,
     MyPropertyGroup
 )
 
