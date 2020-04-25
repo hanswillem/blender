@@ -38,7 +38,7 @@ def main():
 class VIEW_3D_PT_mypanel(bpy.types.Panel):
     #panel attributes
     """Tooltip"""
-    bl_label = 'My Panel Label'
+    bl_label = 'My Panel'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'My Addon'
@@ -58,7 +58,7 @@ class VIEW_3D_PT_mypanel(bpy.types.Panel):
 class SCRIPT_OT_myoperator(bpy.types.Operator):
     #operator attributes
     """Tooltip"""
-    bl_label = 'My Operator Label'
+    bl_label = 'My Operator'
     bl_idname = 'script.myoperator'
     
     #poll - if the poll function returns False, the button will be greyed out
